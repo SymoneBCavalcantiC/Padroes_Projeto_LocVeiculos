@@ -6,12 +6,12 @@ public class Reserva {
 
     private int idReserva;
     private String cliente;
-    private String veiculo; //para criar a classe Veiculo futuramente
+    private Veiculo veiculo;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private double preco;
 
-    public Reserva(int idReserva, String cliente, String veiculo, LocalDate dataInicio, LocalDate dataFim, double preco) {
+    public Reserva(int idReserva, String cliente, Veiculo veiculo, LocalDate dataInicio, LocalDate dataFim, double preco) {
         this.idReserva = idReserva;
         this.cliente = cliente;
         this.veiculo = veiculo;
@@ -36,11 +36,11 @@ public class Reserva {
         this.cliente = cliente;
     }
 
-    public String getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(String veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 
