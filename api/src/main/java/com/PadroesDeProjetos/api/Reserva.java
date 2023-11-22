@@ -1,6 +1,7 @@
 package com.PadroesDeProjetos.api;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Reserva {
 
@@ -11,13 +12,18 @@ public class Reserva {
     private LocalDate dataFim;
     private double preco;
 
-    public Reserva(int idReserva, String cliente, Veiculo veiculo, LocalDate dataInicio, LocalDate dataFim, double preco) {
+    public Reserva(int idReserva, String cliente, Veiculo veiculo, LocalDate dataInicio, LocalDate dataFim) {
         this.idReserva = idReserva;
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.preco = preco;
+        this.preco = calcularValorTotalDiaria(veiculo, dataInicio, dataFim);
+    }
+
+    private double calcularValorTotalDiaria(Veiculo veiculo, LocalDate dataInicio, LocalDate dataFim){
+        long dias = ChronoUnit.DAYS.between(dataInicio, dataFim);
+        return dias * veiculo.getPrecoDiaria();
     }
 
     public int getIdReserva() {
