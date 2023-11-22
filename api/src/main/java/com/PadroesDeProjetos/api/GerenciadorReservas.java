@@ -2,8 +2,11 @@ package com.PadroesDeProjetos.api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class GerenciadorReservas {
+
+    //private static int contadorIdReserva = 0;
 
     private static GerenciadorReservas instancia;
 
@@ -43,7 +46,7 @@ public class GerenciadorReservas {
         }
     }
 
-    public void cancelarReserva(int idReserva){
+    public void cancelarReserva(UUID idReserva){
         boolean removido = reservas.removeIf(reserva -> reserva.getIdReserva() == idReserva);
         if (removido){
             System.out.println("Reserva cancelada com sucesso: ID "+ idReserva);

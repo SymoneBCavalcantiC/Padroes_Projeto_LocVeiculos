@@ -2,18 +2,20 @@ package com.PadroesDeProjetos.api;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.UUID;
 
 public class Reserva {
 
-    private int idReserva;
+    private UUID idReserva;
     private String cliente;
     private Veiculo veiculo;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private double preco;
 
-    public Reserva(int idReserva, String cliente, Veiculo veiculo, LocalDate dataInicio, LocalDate dataFim) {
-        this.idReserva = idReserva;
+
+    public Reserva(String cliente, Veiculo veiculo, LocalDate dataInicio, LocalDate dataFim) {
+        this.idReserva = UUID.randomUUID();
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.dataInicio = dataInicio;
@@ -26,7 +28,7 @@ public class Reserva {
         return dias * veiculo.getPrecoDiaria();
     }
 
-    public int getIdReserva() {
+    public UUID getIdReserva() {
         return idReserva;
     }
 
