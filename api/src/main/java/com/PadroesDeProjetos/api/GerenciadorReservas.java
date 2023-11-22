@@ -12,12 +12,14 @@ public class GerenciadorReservas {
     private GerenciadorReservas(){
         reservas = new ArrayList<>();
     }
+
     public static GerenciadorReservas getInstancia(){
         if (instancia == null){
             instancia = new GerenciadorReservas();
         }
         return instancia;
     }
+
     public void adicionarReserva(Reserva reserva){
         reservas.add(reserva);
         System.out.println("Reserva adicionada com sucesso! ID: "+ reserva.getIdReserva());
@@ -35,6 +37,12 @@ public class GerenciadorReservas {
         System.out.println("----------------------------------------------------------------------");
     }
 
+    public void listarReserva(){
+        for (Reserva reserva : reservas){
+            imprimirDetalhesReserva(reserva);
+        }
+    }
+
     public void cancelarReserva(int idReserva){
         boolean removido = reservas.removeIf(reserva -> reserva.getIdReserva() == idReserva);
         if (removido){
@@ -43,6 +51,4 @@ public class GerenciadorReservas {
             System.out.println("Reserva não localizada: ID " + idReserva);
         }
     }
-
-    //inserir método para listar as reservas existentes
 }
