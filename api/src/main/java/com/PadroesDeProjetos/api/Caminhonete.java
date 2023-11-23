@@ -12,4 +12,6 @@ public class Caminhonete implements Veiculo{
     public double getPrecoDiaria(){
         return PRECO_DIARIA;
     }
+
+
 }
