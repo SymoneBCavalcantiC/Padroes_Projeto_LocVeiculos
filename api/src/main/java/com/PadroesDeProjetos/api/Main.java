@@ -13,14 +13,16 @@ public class Main {
         System.out.println("\nBem-vindo ao Sistema de Reservas de Veículos!");
 
         while (true) {
-            System.out.println("O que você gostaria de fazer? ");
-            System.out.println("\n---MENU-----------------------------------------------------------");
+            System.out.println("\n------------------------------------------------------------------");
+            System.out.println("\n* O que você gostaria de fazer? ");
+            System.out.println("-----MENU-----------------------------------------------------------");
             System.out.println("1. Fazer uma reserva");
             System.out.println("2. Cancelar uma reserva");
             System.out.println("3. Listar todas as reservas");
             System.out.println("4. Sair");
-            System.out.println("\n------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------");
             System.out.print("Escolha uma opção: ");
+
 
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -82,7 +84,4 @@ public class Main {
 o sistema apenas retorna para o menu inicial.
 Inserir mensagem de erro.
 
-2) ao selecionar opção 2 (cancelar reserva), mesmo informando o UUID corretamente,
-o programa diz que a reserva não foi localizada. Se digitar algo diferente do UUID, apresenta msg de erro e
-encerra o programa.
  */

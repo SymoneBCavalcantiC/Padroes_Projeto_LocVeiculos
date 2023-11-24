@@ -32,7 +32,7 @@ public class Reserva {
         return idReserva;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.idReserva = idReserva;
     }
 

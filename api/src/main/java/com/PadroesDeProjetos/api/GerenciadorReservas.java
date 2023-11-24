@@ -47,7 +47,7 @@ public class GerenciadorReservas {
     }
 
     public void cancelarReserva(UUID idReserva){
-        boolean removido = reservas.removeIf(reserva -> reserva.getIdReserva() == idReserva);
+        boolean removido = reservas.removeIf(reserva -> reserva.getIdReserva().equals(idReserva));
         if (removido){
             System.out.println("Reserva cancelada com sucesso: ID "+ idReserva);
         } else {
