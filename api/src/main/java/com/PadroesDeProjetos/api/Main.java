@@ -13,8 +13,8 @@ public class Main {
         System.out.println("\nBem-vindo ao Sistema de Reservas de Veículos!");
 
         while (true) {
-            System.out.println("\n------------------------------------------------------------------");
-            System.out.println("\n* O que você gostaria de fazer? ");
+            System.out.println("--------------------------------------------------------------------");
+            System.out.println("\n* O que você gostaria de fazer?\n");
             System.out.println("-----MENU-----------------------------------------------------------");
             System.out.println("1. Fazer uma reserva");
             System.out.println("2. Cancelar uma reserva");
@@ -41,14 +41,14 @@ public class Main {
                     System.out.println("Obrigado por usar o sistema!");
                     return;
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    System.out.println(" >> Opção inválida. Tente novamente.");
                     break;
             }
         }
     }
 
     private static void fazerReserva() {
-        System.out.print("Digite seu nome e sobrenome: ");
+        System.out.print("\nDigite seu nome e sobrenome: ");
         String cliente = scanner.nextLine();
 
         System.out.println("\nEscolha o tipo de veículo para a reserva:");
@@ -71,17 +71,15 @@ public class Main {
     }
 
     private static void cancelarReserva() {
-        System.out.print("Digite o UUID da reserva a ser cancelada: ");
-        String idReservaStr = scanner.nextLine();
-        UUID idReserva = UUID.fromString(idReservaStr);
+        if (gerenciadorReservas.getReservas().isEmpty()) {
+            System.out.println(" >> Não há reservas cadastradas para cancelar.");
+            System.out.println(" >> Retornando ao Menu Principal.");
+        } else {
+            System.out.print("Digite o UUID da reserva a ser cancelada: ");
+            String idReservaStr = scanner.nextLine();
+            UUID idReserva = UUID.fromString(idReservaStr);
 
-        gerenciadorReservas.cancelarReserva(idReserva);
+            gerenciadorReservas.cancelarReserva(idReserva);
+        }
     }
 }
-
-/* Para corrigir:
-1) ao selecionar a opção 3 (listar reservas), se não houver reservas cadastradas,
-o sistema apenas retorna para o menu inicial.
-Inserir mensagem de erro.
-
- */

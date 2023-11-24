@@ -25,33 +25,45 @@ public class GerenciadorReservas {
 
     public void adicionarReserva(Reserva reserva){
         reservas.add(reserva);
-        System.out.println("Reserva adicionada com sucesso! ID: "+ reserva.getIdReserva());
+        System.out.println(" >> Reserva adicionada com sucesso!");
         imprimirDetalhesReserva(reserva);
     }
 
     public void imprimirDetalhesReserva(Reserva reserva){
-        System.out.println("-- DETALHES DA RESERVA -----------------------------------------------");
+        System.out.println("-- DETALHES DA RESERVA ---------------------------------------------");
         System.out.println("ID: " + reserva.getIdReserva());
         System.out.println("Nome do Cliente: " + reserva.getCliente());
         System.out.println("Veículo reservado: " + reserva.getVeiculo().getTipo());
         System.out.println("Data da retirada do veículo: " + reserva.getDataInicio());
         System.out.println("Data da devolução do veículo: " + reserva.getDataFim());
         System.out.println("Valor da reserva: R$ " + reserva.getPreco());
-        System.out.println("----------------------------------------------------------------------");
     }
 
     public void listarReserva(){
-        for (Reserva reserva : reservas){
-            imprimirDetalhesReserva(reserva);
+        if (reservas.isEmpty()){
+            System.out.println(" >> Não há reservas cadastradas!");
+            System.out.println(" >> Retornando ao Menu principal");
+        } else {
+            for (Reserva reserva : reservas){
+                imprimirDetalhesReserva(reserva);
+            }
         }
     }
 
     public void cancelarReserva(UUID idReserva){
+        if (reservas.isEmpty()){
+            System.out.println(" >> Não há reservas cadastradas para cancelar.");
+            return;
+        }
         boolean removido = reservas.removeIf(reserva -> reserva.getIdReserva().equals(idReserva));
         if (removido){
-            System.out.println("Reserva cancelada com sucesso: ID "+ idReserva);
+            System.out.println(" >> Reserva cancelada com sucesso: ID "+ idReserva);
         } else {
-            System.out.println("Reserva não localizada: ID " + idReserva);
+            System.out.println(" >> Reserva não localizada: ID " + idReserva);
         }
+    }
+
+    public List<Reserva> getReservas() {
+        return reservas;
     }
 }
