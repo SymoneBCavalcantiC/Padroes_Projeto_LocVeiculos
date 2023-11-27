@@ -2,18 +2,20 @@ package com.PadroesDeProjetos.api;
 
 public class PatioVeiculos {
 
-    public Veiculo getVehicle(String type) {
-        if (type.equals("carro")) {
+    public Veiculo buscarVeiculos(String tipo) {
+        if (tipo.equals("carro")) {
             return new Carro();
-        } else if (type.equals("van")) {
+        } else if (tipo.equals("van")) {
             return new Van();
-        } else if (type.equals("moto")) {
+        } else if (tipo.equals("moto")) {
             return new Moto();
-        } else if (type.equals("caminhonete")) {
+        } else if (tipo.equals("caminhonete")) {
             return new Caminhonete();
         } else {
             throw new IllegalArgumentException("Tipo de veículo não disponível.");
         }
     }
+
+
 }
 

@@ -1,4 +1,5 @@
 package com.PadroesDeProjetos.api;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -56,7 +57,7 @@ public class Main {
         System.out.println("Carro, Van, Moto, Caminhonete");
         String tipoVeiculo = scanner.nextLine();
 
-        Veiculo veiculo = patioVeiculos.getVehicle(tipoVeiculo.toLowerCase());
+        Veiculo veiculo = patioVeiculos.buscarVeiculos(tipoVeiculo.toLowerCase());
 
         System.out.print("\nData de início da reserva (dd/MM/yyyy): ");
         String dataInicioStr = scanner.nextLine();
